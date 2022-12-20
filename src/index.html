@@ -7,6 +7,45 @@
   <title>Leaderboard</title>
 </head>
 <body>
-  <h1>Hello world</h1>
+  <header class="header"><h1 class="header-logo">Leaderboard</h1></header>
+  <main class="main-container">
+    <div class="container">
+      <div class="score-list">
+        <div class="score-header">
+          <h3>Recent Scores</h3>
+          <button class="btn-submit" id="refresh-scores">Refresh</button>
+        </div>
+        <ul class="score-list-group">
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          <li class="score-item">
+            Name: <span class="badge-score">100</span>
+          </li>
+        </ul>
+      </div><!-- End of score-list -->
+
+      <div class="form-group">
+        <form id="add-score">
+          <div class="form-input-group">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Add name here...">
+          </div>
+          <div class="form-input-group">
+            <label for="score"></label>
+            <input type="number" id="score" name="score" class="form-input" placeholder="Add score here...">
+          </div>
+          <button type="submit" id="submit-score" class="btn-submit">Submit</button>
+        </form>
+      </div><!-- End of form section -->
+    </div><!-- End of container -->
+  </main>
 </body>
 </html>
