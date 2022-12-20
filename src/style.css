@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+}
+
+.main-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+  justify-content: center;
+}
+
+.score-list {
+  flex: 1;
+}
+
+.score-header {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-list-group {
+  list-style: none;
+  border: 1px solid #333;
+}
+
+.score-item {
+  padding: 10px 15px;
+}
+
+.score-item:nth-child(even) {
+  background: #dedede;
+}
+
+.form-group {
+  flex: 1;
+  margin-left: 25px;
+  padding: 10px;
+}
+
+#add-score {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-title {
+  margin: 10px 0;
+}
+
+.form-input-group {
+  padding: 10px 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.btn-submit {
+  width: fit-content;
+  padding: 8px 12px;
+}
+
+#submit-score {
+  align-self: flex-end;
+}
