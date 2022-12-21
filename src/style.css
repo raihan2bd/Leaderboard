@@ -99,7 +99,8 @@ body {
 
 .btn-submit {
   border: none;
-  padding: 8px 12px;
+  color: #fff;
+  padding: 8px 15px;
   border-radius: 5px;
   width: fit-content;
   background: #238636;
