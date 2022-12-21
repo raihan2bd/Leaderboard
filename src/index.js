@@ -1,51 +1,34 @@
 import './style.css';
-import { onAddscore, render } from './modules/manage-leaderboard.js';
+import { onAddscore, onFetchData } from './modules/manage-leaderboard.js';
 
-// Temporary data
-const data = [
-  {
-    id: 1,
-    name: 'Raihan',
-    score: 100,
-  },
-  {
-    id: 2,
-    name: 'Raihan',
-    score: 75,
-  },
-  {
-    id: 3,
-    name: 'Raihan',
-    score: 50,
-  },
-  {
-    id: 4,
-    name: 'Raihan',
-    score: 20,
-  },
-  {
-    id: 5,
-    name: 'Raihan',
-    score: 10,
-  },
-];
+// My Game Id;
+const gameId = 'kz7kFHbI0ph5AfvprVSS';
 
-// ll the score list will append here.
-const scoreContainer = document.querySelector('.score-list-group');
+const apiEndpoint = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
 
 // on submit add score
-const addBookForm = document.getElementById('add-score');
-addBookForm.addEventListener('submit', (e) => {
+const addScoreForm = document.getElementById('add-score');
+addScoreForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const name = document.getElementById('name').value;
-  const score = document.getElementById('score').value;
-  onAddscore({ name, score });
+  const user = document.getElementById('name');
+  const score = document.getElementById('score');
+  const btn = document.getElementById('submit-score');
+  btn.disabled = true;
+  const result = onAddscore(apiEndpoint, { user: user.value, score: score.value });
+  if (result) {
+    user.value = '';
+    score.value = '';
+    btn.disabled = false;
+  }
+});
 
-  // next level code will start form here
+// fetch scores on Refresh
+document.getElementById('refresh-scores').addEventListener('click', () => {
+  onFetchData(apiEndpoint);
 });
 
 // onload fetch the score.
-window.onload = () => {
-  // I will face the scrore form here.
-  render(data, scoreContainer);
+window.onload = async () => {
+  // fetch score list on the fly
+  onFetchData(apiEndpoint);
 };
