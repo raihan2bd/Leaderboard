@@ -17,16 +17,43 @@ export const render = (data) => {
 
 // Add score
 export const onAddscore = async (url, data) => {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
+  const msg = document.querySelector('.message');
+  try {
+    msg.classList.remove('error');
+    msg.innerHTML = '';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-  const result = await res.json();
-  return result;
+    // handing error
+    if (!res.ok && res.status >= 400) {
+      throw new Error(`${res.status} ${res.statusText}`);
+    } else if (!res.ok) {
+      return Promise.reject(new Error(`${res.status} ${res.statusText}`));
+    }
+
+    const result = await res.json();
+    msg.innerHTML = result.result;
+    msg.classList.add('success');
+    setTimeout(() => {
+      msg.innerHTML = '';
+      msg.classList.remove('success');
+    }, 3000);
+    return result;
+  } catch (err) {
+    // catch the error
+    msg.innerHTML = err;
+    msg.classList.add('error');
+    setTimeout(() => {
+      msg.innerHTML = '';
+      msg.classList.remove('error');
+    }, 3000);
+    return err;
+  }
 };
 
 // fetch all game scores
