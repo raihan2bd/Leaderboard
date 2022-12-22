@@ -128,8 +128,7 @@ npm install --save-dev
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **I will add styles and also make this project nice and user fiendly**
-- [ ] **I will add more functionality using javascript such as add or delete score.**
+- [ ] **I will use my own api and add more functionality using javascript such as add or delete score.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
